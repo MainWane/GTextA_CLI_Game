@@ -18,6 +18,7 @@ cin >> criminalName;
 cout << criminalName << " træder ud af sit rottebefængte hotel og kaster blikket ned på sin rustne Mañana. Dybt suk." << endl;
 cout << "Til alt held triller en funklende Infernus op til trafiklyset lige foran. En nar med klistret svenskergarn sidder bag rettet." << endl;
 cout << criminalName << " tænker det er tid til at opgradere. Hvad skal der gøres?" << endl;
+cout << criminalName << " har " << health << " Health" << " og " << power << " power" << endl;
 cout << "Flå døren op - tast 'flå'" << endl;
 cout << "Kast en granat ind - tast 'granat'" << endl;
 cout << "Træk shotgun - tast 'shotgun'" << endl;
