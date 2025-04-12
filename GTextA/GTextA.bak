@@ -1,0 +1,186 @@
+#include <iostream>
+#include <string>
+#include <chrono>
+#include <thread>
+#include <algorithm>
+#include <cctype>
+#include "../include/Criminal.h"
+using namespace std;
+
+// Globale variabler
+int health = 100;
+int maxHealth = 100;
+int power = 10;
+int maxPower = 200;
+string criminalName;    
+string valg1;
+string valg2;
+string valg3;
+bool bevæbnet = false;
+
+// Vis stats funktion
+void printStats() {
+    std::cout << criminalName << " har " << health << " Health og " << power << " power." << endl;
+}
+
+// Skrivemaskine effekt funktion
+void skrivLangsomt(string tekst, int hastighed = 50) {
+    for (char c : tekst) {
+        std::cout << c << std::flush;
+        this_thread::sleep_for(chrono::milliseconds(hastighed));
+    }
+    std::cout << std::endl;
+}
+
+// Dramatisk skrivemaskine effekt funktion
+void skrivLangsommere(string tekst, int hastighed = 120) {
+    for (char c : tekst) {
+        std::cout << c << flush;
+        this_thread::sleep_for(chrono::milliseconds(hastighed));
+    }
+    std::cout << endl;
+}
+
+int main() {
+// Titel
+std::cout << endl;
+std::cout << endl;
+skrivLangsommere("G");
+skrivLangsommere("Text");
+skrivLangsommere("A");
+std::cout << endl;
+std::cout << endl;
+// Introduktion
+skrivLangsomt("Velkommen til Florida. Staten hvor ingen");
+skrivLangsommere("(og vi mener INGEN)");
+skrivLangsomt("indskydelse er for vanvittig til at handle på.");
+std::cout << endl; 
+skrivLangsomt("Hvem er du? (indtast navn)");
+while (true) {
+    std::getline(std::cin, criminalName); // Indtastning af navn
+    if (criminalName.empty()) {
+        std::cout << "Navnet kan ikke være tomt. Prøv igen: "; // Ved tom indtastning
+    } else if (criminalName.length() > 50) {
+        std::cout << "Navnet er for langt. Indtast et kortere navn (maks 50 tegn): "; // Ved for langt navn   
+    } else {
+        break;
+    }
+}
+// Første sekvens
+skrivLangsomt(criminalName + " træder ud af sit rottebefængte hotel og kaster blikket ned på sin rustne Mañana. Dybt suk.");
+skrivLangsomt("Til alt held triller en funklende rød Infernus op til trafiklyset lige foran."); 
+skrivLangsomt("En nar med klistret svenskergarn sidder bag ruden, foran rettet.");
+skrivLangsomt(criminalName + " tænker det er tid til at opgradere bil..."); 
+skrivLangsomt("Hvad skal der gøres?");
+std::cout << endl;
+printStats();  // Vis stats
+std::cout << endl;
+
+// Valg1 muligheder
+std::cout << "Flå døren op - tast 'flå'" << endl;
+std::cout << "Kast en granat ind - tast 'granat'" << endl;
+std::cout << "Træk shotgun - tast 'shotgun'" << endl;
+
+// while loop for valg1
+// Brugeren skal vælge en af de tre muligheder
+// Hvis brugeren vælger en ugyldig mulighed, skal de blive bedt om at prøve igen
+while (true)
+{   
+    std::cin >> valg1;
+
+    // Gør alt lowercase
+transform(valg1.begin(), valg1.end(), valg1.begin(), ::tolower);
+
+// Valg1 flå
+if(valg1 == "flå") {
+    skrivLangsomt(criminalName + " tager fat i døren. Svenskergarnet går med det samme i panik og jokker sømmet i bund."); 
+    skrivLangsomt("Den fine røde bil bliver nu endnu rødere, mens den pløjer et par turister ned.");  
+    skrivLangsomt(criminalName + " bliver trukket næsten hundrede meter før " + criminalName + " bliver sendt flyvende op på fortovet.");
+    skrivLangsommere("Av for helvede."); 
+    health = 50;
+    printStats();
+    skrivLangsomt(criminalName + " kigger op og ser at Svenskergarnet er steget ud af bilen. Svenskergarnet har en pistol i hånden og peger den mod " + criminalName + ".");
+    skrivLangsommere("Hvad gør du nu");
+    break;
+
+// Valg1 granat
+} else if(valg1 == "granat") {
+    skrivLangsomt(criminalName + " kaster en granat mod bilen."); 
+    skrivLangsommere("Granaten rammer ruden på bilen med et godt dunk. Granaten eksploderer. Både bilen og " + criminalName + " bliver sprunget i luften.");
+    std::cout << endl;
+    skrivLangsommere("WASTED");
+    std::cout << endl;
+    skrivLangsommere("Game over");
+    return 0; // Game over betingelse
+
+// Valg1 shotgun
+} else if(valg1 == "shotgun") {
+    skrivLangsomt(criminalName + " trækker en shotgun fra indersiden sin hawaiiskjorte."); 
+    health = 100;
+    power = 80;
+    bevæbnet = true;
+    std::cout << endl;
+    printStats();
+    skrivLangsomt(criminalName + " mærker dens tyngde i hænderne og smiler ondskabsfuldt. Svenskergarnet går med det samme i panik og jokker sømmet i bund."); 
+    skrivLangsomt("Den tomme plads som Infernus'en efterlader afslører nu, at der holder en politilbil lige bag ved. Klassisk..."); 
+    skrivLangsomt("Betjentene springer ud af bilen og trækker deres pistoler.");
+    std::cout << endl;
+    skrivLangsommere("Hvad gør du nu?");
+    
+    break;
+
+// Valg1 ugyldigt
+} else {
+    std::cout << "Ugyldigt valg. Prøv igen. C'mon, ægte gangstere kan godt stave" << endl;
+}
+}
+
+// Valg2 muligheder
+// Bygger videre på valg1 tager udgangspunkt i hvad der er valgt i valg1
+std::cout << "Skyd løs! Fuck the police! - tast 'skyd'" << endl;
+std::cout << "Flygt! Løb til den nærliggende gyde - tast 'flygt'" << endl;
+
+while (true)
+{   
+    std::cin >> valg2;
+
+    // Gør alt lowercase
+transform(valg2.begin(), valg2.end(), valg2.begin(), ::tolower);
+
+if(valg2 == "skyd") {
+    if(bevæbnet){
+        skrivLangsomt(criminalName + " begynder at skyde vildt omkring sig efter alt der kunne ligne en uniform. Betjente søger desperat dækning bag politibilen - stykker af metal og glas flyver om ørene på dem." );
+        break;
+    } else {skrivLangsomt(criminalName + " hæver armen og bevæger instinktivt sin trigger finger. Du har dog intet våben i hånden. Svenskergarnet spilder ingen tid på at pløkke dig ned.");
+        std::cout << endl;
+        skrivLangsommere("WASTED");
+        std::cout << endl;
+        skrivLangsommere("Game Over");
+        return 0; // Game over betingelse
+    }
+} else if (valg2 == "flygt") {
+    if(bevæbnet){ // Spilleren er bevæbnet
+        skrivLangsomt(criminalName + " løber langsomt, det svært med en tung shotgun i hænderne. Betjentene skyder efter " + criminalName + " og rammer " + criminalName + " i skulderen");
+        health = 40;
+        printStats();
+        skrivLangsomt("Det går op for dig at du stadig har en granat i lommen.");
+        skrivLangsommere("Hvad gør du nu?");
+        std::cout << "Kast granaten - tast 'granat'" << endl;
+        std::cout << "Løb videre - tast 'løb'" << endl; 
+        std::cin >> valg3;
+        break;
+    } else if(!bevæbnet) { // Spilleren er ikke bevæbnet
+        skrivLangsomt(criminalName + " løber som én i fanden ind i gyden. Det er en blindgyde. Misandten om der ikke ligger noget og skinner, lige ved siden af affaldskontaineren. Det er en bazooka! " + criminalName + " ryster på hovedet og mumler 'kun i Vice City.'");
+        break;
+    } 
+    
+    } else {
+        std::cout << "Ugyldigt valg. Prøv igen. C'mon, ægte gangstere kan godt stave" << endl;
+        skrivLangsommere("Hvad gør du nu?");
+        std::cout << "Fuck the police! Skyd løs - tast 'skyd'" << endl;
+        std::cout << "Flygt! Løb til den nærliggende gyde - tast 'flygt'" << endl;
+    }
+    
+
+}
+}
