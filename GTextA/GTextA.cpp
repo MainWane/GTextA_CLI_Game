@@ -16,7 +16,7 @@
 using namespace std; 
 
 // Skrivemaskine effekt funktion
-void skrivLangsomt(string tekst, int hastighed = 80) {
+void skrivLangsomt(string tekst, int hastighed = 50) {
     for (char c : tekst) {
         std::cout << c << std::flush;
         this_thread::sleep_for(chrono::milliseconds(hastighed));
@@ -25,7 +25,7 @@ void skrivLangsomt(string tekst, int hastighed = 80) {
 }
 
 // Dramatisk skrivemaskine effekt funktion
-void skrivLangsommere(string tekst, int hastighed = 180) {
+void skrivLangsommere(string tekst, int hastighed = 100) {
     for (char c : tekst) {
         std::cout << c << flush;
         this_thread::sleep_for(chrono::milliseconds(hastighed));
@@ -59,8 +59,8 @@ string navn;
 std::cout << endl;
 std::cout << endl;
 skrivLangsommere(std::string(BOLD) + YELLOW + "G" + RESET);
-skrivLangsommere(std::string(BOLD) +  YELLOW + "Text" + RESET);
-skrivLangsommere(std::string(BOLD) +  YELLOW + "A" + RESET);
+skrivLangsommere(std::string(BOLD) + YELLOW + "Text" + RESET);
+skrivLangsommere(std::string(BOLD) + YELLOW + "A" + RESET);
 std::cout << endl;
 std::cout << endl;
 
@@ -182,7 +182,8 @@ if(valg2 == "skyd") {
         std::cin >> valg3;
         break;
     } else if(!protag.isArmed()) { // Spilleren er ikke bevæbnet
-        skrivLangsomt(protag.getName() + " løber som én i fanden ind i gyden. Det er en blindgyde. Misandten om der ikke ligger noget og skinner, lige ved siden af affaldskontaineren. Det er en bazooka! " + protag.getName() + " ryster på hovedet og mumler 'kun i Vice City.'");
+        skrivLangsomt(protag.getName() + " løber som én i fanden ind i gyden. Det er en blindgyde. Misandten om der ikke ligger noget og skinner, lige ved siden af affaldskontaineren. Det er en Rocket Launcher!");
+        skrivLangsomt(protag.getName() + " ryster på hovedet og mumler 'kun i Vice City.'");
         break;
     } 
     
