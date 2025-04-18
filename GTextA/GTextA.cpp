@@ -28,7 +28,7 @@ string navn;
 std::cout << endl;
 std::cout << endl;
 skrivLangsommere(std::string(BOLD) + YELLOW + "G" + RESET);
-skrivLangsommere(std::string(BOLD) + YELLOW + "Text" + RESET);
+skrivLangsomt(std::string(BOLD) + YELLOW + "Text" + RESET);
 skrivLangsommere(std::string(BOLD) + YELLOW + "A" + RESET);
 std::cout << endl;
 std::cout << endl;
@@ -101,13 +101,13 @@ if(valg1 == "flå") {
 
 // Valg1 shotgun
 } else if(valg1 == "shotgun") {
-    skrivLangsomt(protag.getName() + " trækker en shotgun fra indersiden af sin hawaiiskjorte."); 
+    skrivLangsomt(protag.getName() + " trækker en shotgun fra indersiden af sin hawaiiskjorte. Du mærker dens tyngde i hænderne og smiler ondskabsfuldt."); 
     protag.setPower(80); // Spilleren får power
     protag.arm(); // Spilleren bliver bevæbnet
     std::cout << endl;
     protag.printStats();
     std::cout << endl;
-    skrivLangsomt(protag.getName() + " mærker dens tyngde i hænderne og smiler ondskabsfuldt. Svenskergarnet går med det samme i panik og jokker sømmet i bund."); 
+    skrivLangsomt("Svenskergarnet går med det samme i panik og jokker sømmet i bund."); 
     skrivLangsomt("Den tomme plads som Infernus'en efterlader afslører nu, at der holder en politilbil lige bag ved. Klassisk..."); 
     skrivLangsomt("Betjentene springer ud af bilen og trækker deres pistoler.");
     std::cout << endl;

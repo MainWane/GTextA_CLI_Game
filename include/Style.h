@@ -17,7 +17,7 @@
 using namespace std; 
 
 // Skrivemaskine effekt funktion
-void skrivLangsomt(string tekst, int hastighed = 50) {
+inline void skrivLangsomt(string tekst, int hastighed = 50) {
     for (char c : tekst) {
         std::cout << c << std::flush;
         this_thread::sleep_for(chrono::milliseconds(hastighed));
@@ -26,7 +26,7 @@ void skrivLangsomt(string tekst, int hastighed = 50) {
 }
 
 // Dramatisk skrivemaskine effekt funktion
-void skrivLangsommere(string tekst, int hastighed = 100) {
+inline void skrivLangsommere(string tekst, int hastighed = 100) {
     for (char c : tekst) {
         std::cout << c << flush;
         this_thread::sleep_for(chrono::milliseconds(hastighed));
@@ -35,7 +35,7 @@ void skrivLangsommere(string tekst, int hastighed = 100) {
 }
 
 // Wasted funktion med effekt
-void WASTED() {
+inline void WASTED() {
     std::cout << endl;
     skrivLangsommere(std::string(BOLD) + RED + "WASTED" + RESET);
     std::cout << endl;
@@ -43,7 +43,7 @@ void WASTED() {
 }
 
 // Busted funktion med effekt
-void BUSTED() {
+inline void BUSTED() {
     std::cout << endl;
     skrivLangsommere(std::string(BOLD) + RED + "BUSTED" + RESET);
     std::cout << endl;
