@@ -4,23 +4,56 @@
 #include <string> // For at bruge std::string
 #include <chrono> // For tidsforsinkelse
 #include <thread> // For std::this_thread::sleep_for
-#include <algorithm> // For std::transform
+#include <algorithm>    // For std::transform
 #include <cctype> // For at konvertere til lowercase
 #include "../include/Criminal.h" // Include the Criminal class header file
-#include "../include/Style.h" // Include the Style header file
+
+// ANSI-escape codes for farver
+#define RESET "\033[0m"       // Nulstil farver
+#define RED "\033[31m"        // Rød tekst
+#define GREEN "\033[32m"      // Grøn tekst
+#define YELLOW "\033[33m"     // Gul tekst
+#define BOLD "\033[1m"        // Fed tekst
 
 using namespace std; 
+
+// Skrivemaskine effekt funktion
+void skrivLangsomt(string tekst, int hastighed = 50) {
+    for (char c : tekst) {
+        std::cout << c << std::flush;
+        this_thread::sleep_for(chrono::milliseconds(hastighed));
+    }
+    std::cout << std::endl;
+}
+
+// Dramatisk skrivemaskine effekt funktion
+void skrivLangsommere(string tekst, int hastighed = 100) {
+    for (char c : tekst) {
+        std::cout << c << flush;
+        this_thread::sleep_for(chrono::milliseconds(hastighed));
+    }
+    std::cout << endl;
+}
+
+// Ugyldigt valg funktion
+void ugyldigtValg() {
+    std::cout << "Ugyldigt valg. Prøv igen. C'mon, ægte gangstere kan godt stave" << endl;
+}
+
+void WASTED() {
+    std::cout << endl;
+    skrivLangsommere(std::string(BOLD) + RED + "WASTED" + RESET);
+    std::cout << endl;
+    skrivLangsommere(std::string(BOLD) + YELLOW + "Game Over" + RESET);
+}
 
 // Main funktion
 // Her starter programmet
 int main() {
-
 // Variabler
-// Valg
 string valg1;
 string valg2;
 string valg3;
-// Navn
 string navn;
 
 
@@ -35,12 +68,11 @@ std::cout << endl;
 
 
 // Introduktion
-skrivLangsomt("Velkommen til Vice City, Florida. Stedet hvor ingen");
+skrivLangsomt("Velkommen til Florida. Staten hvor ingen");
 skrivLangsommere("(og vi mener INGEN)");
 skrivLangsomt("indskydelse er for vanvittig til at handle på.");
 std::cout << endl; 
 
-// Spilleren vælger navn
 skrivLangsomt("Hvem er du? (indtast navn)");
 while (true) {
     getline(cin, navn); // Indtastning af navn
@@ -52,8 +84,7 @@ while (true) {
         break;
     }
 }
-Criminal protag(navn, 100, 10, false); // Opretter en Criminal objekt med spillerens navn, 100 health, 10 power og ikke bevæbnet
-std::cout << endl; // Ny linje
+Criminal protag(navn, 100, 10, false);
 
 // Første sekvens
 skrivLangsomt(protag.getName() + " træder ud af sit rottebefængte hotel og kaster blikket ned på sin rustne Mañana. Dybt suk.");
@@ -77,7 +108,7 @@ while (true)
 {   
     std::cin >> valg1;
 
-    // Gør alt lowercase, så det er lettere at tage imod input
+    // Gør alt lowercase
 transform(valg1.begin(), valg1.end(), valg1.begin(), ::tolower);
 
 // Valg1 flå
@@ -117,7 +148,7 @@ if(valg1 == "flå") {
 
 // Valg1 ugyldigt
 } else {
-    protag.ugyldigtValg(); // Kald funktionen for ugyldigt valg
+    ugyldigtValg(); // Kald funktionen for ugyldigt valg
 }
 }
 
@@ -159,7 +190,7 @@ if(valg2 == "skyd") {
     } 
     
     } else {
-        protag.ugyldigtValg(); // Kald funktionen for ugyldigt valg
+        ugyldigtValg(); // Kald funktionen for ugyldigt valg
         skrivLangsommere("Hvad gør du nu?");
         std::cout << "Fuck the police! Skyd løs - tast 'skyd'" << endl;
         std::cout << "Flygt! Løb til den nærliggende gyde - tast 'flygt'" << endl;
