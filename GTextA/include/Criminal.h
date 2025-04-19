@@ -64,6 +64,4 @@ public:
     bool hasItem(const std::string& item) const; // Check if item is in inventory
     void printInventory() const; // Print inventory
 
-    // Wanted level functions
-    
 };

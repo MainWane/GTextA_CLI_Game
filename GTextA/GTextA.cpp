@@ -1,4 +1,4 @@
-/* GTextA ver. 0.61
+/* GTextA ver. 0.62
 af Ulrik Wandall - 19/04/2025
 */
 
@@ -68,7 +68,7 @@ while (true) {
     skrivLangsommere("Hvad skal der gøres?");
     std::cout << endl;
     protag.printStats();  // Vis stats
-    _sleep(1000); // Pause i 1 sekund
+    std::cout << endl;
     protag.printInventory(); // Vis inventar
     std::cout << endl;
 

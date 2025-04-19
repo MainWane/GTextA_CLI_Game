@@ -1,4 +1,5 @@
-// Criminal Class Header File
+// Criminal (Player) Class cpp file
+
 #include <string>
 #include <iostream> // For std::cout
 #include "include/Criminal.h"
