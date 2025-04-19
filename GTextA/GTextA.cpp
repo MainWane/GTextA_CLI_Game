@@ -1,4 +1,4 @@
-/* GTextA ver. 0.55
+/* GTextA ver. 0.6
 Af Ulrik Wandall - 19/04/2025
 */
 
@@ -37,7 +37,7 @@ int main() {
     std::cout << endl; 
 
     // Spilleren vælger navn
-    skrivLangsomt("Hvem er du? (indtast navn)");
+    skrivLangsommere("Hvem er du? (indtast navn)");
     while (true) {
         getline(cin, navn); // Indtastning af navn
         if (navn.empty()) {
@@ -59,9 +59,11 @@ int main() {
     skrivLangsomt("Til alt held triller en funklende rød Infernus op til trafiklyset lige foran."); 
     skrivLangsomt("En nar med klistret svenskergarn sidder bag ruden, foran rettet.");
     skrivLangsomt(protag.getName() + " tænker det er tid til at opgradere bil..."); 
-    skrivLangsomt("Hvad skal der gøres?");
+    std::cout << endl; // Ny linje
+    skrivLangsommere("Hvad skal der gøres?");
     std::cout << endl;
     protag.printStats();  // Vis stats
+    _sleep(1000); // Pause i 1 sekund
     protag.printInventory(); // Vis inventar
     std::cout << endl;
 
@@ -85,7 +87,7 @@ int main() {
             skrivLangsomt("Den fine røde bil bliver nu endnu rødere, mens den pløjer et par turister ned.");  
             skrivLangsomt(protag.getName() + " bliver trukket næsten hundrede meter før " + protag.getName() + " bliver sendt flyvende op på fortovet.");
             skrivLangsommere("Av for helvede."); 
-            protag.takeDamage(50); // Spilleren tager skade
+            protag.takeDamage(30); // Spilleren tager skade
             protag.printStats();
             skrivLangsomt(protag.getName() + " kigger op og ser at Svenskergarnet er steget ud af bilen. Svenskergarnet har en pistol i hånden og peger den mod " + protag.getName() + ".");
             skrivLangsommere("Hvad gør du nu");
@@ -109,7 +111,9 @@ int main() {
             skrivLangsomt("Svenskergarnet går med det samme i panik og jokker sømmet i bund."); 
             skrivLangsomt("Den tomme plads som Infernus'en efterlader afslører nu, at der holder en politilbil lige bag ved. Klassisk..."); 
             skrivLangsomt("Betjentene springer ud af bilen og trækker deres pistoler.");
-            std::cout << endl;
+            protag.increaseWantedLevel(2); // Spilleren får wanted level
+            skrivLangsomt("De peger deres pistoler mod " + protag.getName() + " og råber 'Læg våbnet ned!'. Det er nu eller aldrig.");
+            protag.printWantedLevel();
             skrivLangsommere("Hvad gør du nu?");
             
             break;
@@ -134,6 +138,15 @@ int main() {
         if (valg2 == "skyd") {
             if (protag.isArmed()) {
                 skrivLangsomt(protag.getName() + " begynder at skyde vildt omkring sig efter alt der kunne ligne en uniform. Betjente søger desperat dækning bag politibilen - stykker af metal og glas flyver om ørene på dem." );
+                protag.increaseWantedLevel(3);
+                skrivLangsomt("Du kan i det fjerne høre lyden af en helikopter. Din mave snurrer sig sammen."); 
+                skrivLangsomt("Du tænker dog ikke for meget over det, da politibilen i samme øjeblik eksploderer og sende en ildsky mod himlen.");
+                skrivLangsomt("Betjentene er enten stukket af eller døde - du har i hver fald fået ram på et meget uheldigt postbud som ligger livløst i grøften.");
+                skrivLangsomt("Kysten er klar og der kunne godt være noget værdifuldt at finde blandt kaosset.");
+                std::cout << endl;
+                skrivLangsomt("Hvad gør du nu?");
+                // Hvis spilleren vælger at lede efter noget værdifuldt kommer en helikopter og skyder spilleren.
+                // I så fald finder spilleren 2000$ og en pistol.
                 break;
             } else {skrivLangsomt(protag.getName() + " hæver armen og bevæger instinktivt sin trigger finger. Du har dog intet våben i hånden. Svenskergarnet spilder ingen tid på at pløkke dig ned.");
                 WASTED(); // Kald funktionen for WASTED
@@ -158,8 +171,8 @@ int main() {
         } else {
             protag.ugyldigtValg(); // Kald funktionen for ugyldigt valg
             skrivLangsommere("Hvad gør du nu?");
-            std::cout << "Fuck the police! Skyd løs - tast 'skyd'" << endl;
-            std::cout << "Flygt! Løb til den nærliggende gyde - tast 'flygt'" << endl;
+            std::cout << "Skyd løs! Fuck the police! - tast 'skyd'" << endl;
+            std::cout << "Flygt! Stik af til den nærliggende gyde - tast 'flygt'" << endl;
         }
     }
 }

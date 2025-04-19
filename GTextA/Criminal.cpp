@@ -4,6 +4,7 @@
 #include "include/Criminal.h"
 #include "include/Style.h" // Include the Style header file
 
+
 // Member functions
     // Health og Damage funktioner
     void Criminal::takeDamage(int damage) { // Function to take damage
@@ -39,17 +40,50 @@
             inventory.erase(it); // Remove the item from the inventory
         }
     }
+    // Check if item is in inventory
     bool Criminal::hasItem(const std::string& item) const { // Check if item is in inventory
         return std::find(inventory.begin(), inventory.end(), item) != inventory.end(); // Return true if item is found
     }
     void Criminal::printInventory() const { // Print inventory
-        std::cout << "Inventory: ";
+        std::cout << "------ Inventory ------ "; // Print inventory header
+        std::cout << std::endl; // New line
         if (inventory.empty()) {
             std::cout << "Ingen ting i lommerne" << std::endl; // If inventory is empty
         } else {
             for (const auto& item : inventory) {
-                std::cout << "1 " << item << " "; // Print each item in the inventory
+                std::cout << "1 " << item << ", "; // Print each item in the inventory
             }
             std::cout << std::endl;
         }
+    }
+
+    // Wanted level funktioner
+    void Criminal::increaseWantedLevel(int amount) {
+        wantedLevel += amount;
+        if (wantedLevel > 5) wantedLevel = 5;
+    }
+    
+    void Criminal::decreaseWantedLevel(int amount) {
+        wantedLevel -= amount;
+        if (wantedLevel < 0) wantedLevel = 0;
+    }
+    
+    int Criminal::getWantedLevel() const {
+        return wantedLevel;
+    }
+    
+    void Criminal::printWantedLevel() const {
+        std::cout << "WANTED LEVEL: ";
+        for (int i = 0; i < wantedLevel; ++i) {
+            std::cout << "★";
+        }
+        if (wantedLevel == 0) {
+            std::cout << "Ingen mistanke endnu...";
+        }
+        std::cout << std::endl;
+    }
+    
+    void wantedLevel(int level) { // Set wanted level
+        if (level < 0) level = 0; // Ensure level is not negative
+        if (level > 5) level = 5; // Ensure level does not exceed 5
     }

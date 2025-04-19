@@ -17,7 +17,7 @@
 using namespace std; 
 
 // Skrivemaskine effekt funktion
-inline void skrivLangsomt(string tekst, int hastighed = 50) {
+inline void skrivLangsomt(string tekst, int hastighed = 40) {
     for (char c : tekst) {
         std::cout << c << std::flush;
         this_thread::sleep_for(chrono::milliseconds(hastighed));
@@ -26,7 +26,7 @@ inline void skrivLangsomt(string tekst, int hastighed = 50) {
 }
 
 // Dramatisk skrivemaskine effekt funktion
-inline void skrivLangsommere(string tekst, int hastighed = 100) {
+inline void skrivLangsommere(string tekst, int hastighed = 90) {
     for (char c : tekst) {
         std::cout << c << flush;
         this_thread::sleep_for(chrono::milliseconds(hastighed));
