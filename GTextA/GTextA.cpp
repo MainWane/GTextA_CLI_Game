@@ -1,5 +1,5 @@
-/* GTextA ver. 0.6
-Af Ulrik Wandall - 19/04/2025
+/* GTextA ver. 0.61
+af Ulrik Wandall - 19/04/2025
 */
 
 #include <iostream> // For at bruge std::cout
@@ -38,24 +38,29 @@ int main() {
 
     // Spilleren vælger navn
     skrivLangsommere("Hvem er du? (indtast navn)");
-    while (true) {
-        getline(cin, navn); // Indtastning af navn
-        if (navn.empty()) {
-            std::cout << "Navnet kan ikke være tomt. Prøv igen: "; // Ved tom indtastning
-        } else if (navn.length() > 50) {
-            std::cout << "Navnet er for langt. Indtast et kortere navn (maks 50 tegn): "; // Ved for langt navn   
-        } else {
-            break;
-        }
+while (true) {
+    getline(cin, navn); // Indtastning af navn
+
+    // Fjernede mellemrum i starten og slutningen er valgfrit, men tjekker om navnet kun er whitespace
+    bool kunMellemrum = std::all_of(navn.begin(), navn.end(), [](unsigned char c) { return std::isspace(c); });
+
+    if (navn.empty() || kunMellemrum) {
+        std::cout << "Navnet kan ikke være tomt eller kun mellemrum. Prøv igen: ";
+    } else if (navn.length() > 50) {
+        std::cout << "Navnet er for langt. Indtast et kortere navn (maks 50 tegn): ";
+    } else {
+        break;
     }
-    Criminal protag(navn, 100, 10, false); // Opretter en Criminal objekt med spillerens navn, 100 health, 10 power og ikke bevæbnet
+}
+    Criminal protag(navn, 100, 10, false, 0, 5); // Opretter en Criminal objekt med spillerens navn, 100 health, 10 power og ikke bevæbnet
     protag.addItem("Shotgun");
     protag.addItem("Granat");
     protag.addItem("Banan Snackbar"); // Tilføjer genstande til spillerens inventar
     std::cout << endl; // Ny linje
 
     // Første sekvens
-    skrivLangsomt(protag.getName() + " træder ud af sit rottebefængte hotel og kaster blikket ned på sin rustne Mañana. Dybt suk.");
+    skrivLangsomt(protag.getName() + " træder ud af sit rottebefængte hotel og kaster blikket ned på sin rustne Mañana. Dybt suk, dækket er punkteret igen.");
+    protag.printCash(); // Vis spillerens penge
     skrivLangsomt("Til alt held triller en funklende rød Infernus op til trafiklyset lige foran."); 
     skrivLangsomt("En nar med klistret svenskergarn sidder bag ruden, foran rettet.");
     skrivLangsomt(protag.getName() + " tænker det er tid til at opgradere bil..."); 

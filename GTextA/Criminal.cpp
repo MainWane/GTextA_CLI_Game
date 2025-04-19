@@ -87,3 +87,18 @@
         if (level < 0) level = 0; // Ensure level is not negative
         if (level > 5) level = 5; // Ensure level does not exceed 5
     }
+
+    // Cash funktioner
+    void Criminal::addCash(int amount) { // Add cash
+        cash += amount;
+    }
+    void Criminal::removeCash(int amount) { // Remove cash
+        cash -= amount;
+        if (cash < 0) cash = 0; // Ensure cash doesn't go below 0
+    }
+    int Criminal::getCash() const { // Get cash
+        return cash;
+    }
+    void Criminal::printCash() const { // Print cash
+        skrivLangsomt("Du har $" + std::to_string(cash) + " på dig."); // Print cash amount
+    }
