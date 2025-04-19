@@ -1,4 +1,6 @@
-// GTextA ver. 0.55
+/* GTextA ver. 0.55
+Af Ulrik Wandall - 19/04/2025
+*/
 
 #include <iostream> // For at bruge std::cout
 #include <string> // For at bruge std::string
@@ -47,6 +49,9 @@ int main() {
         }
     }
     Criminal protag(navn, 100, 10, false); // Opretter en Criminal objekt med spillerens navn, 100 health, 10 power og ikke bevæbnet
+    protag.addItem("Shotgun");
+    protag.addItem("Granat");
+    protag.addItem("Banan Snackbar"); // Tilføjer genstande til spillerens inventar
     std::cout << endl; // Ny linje
 
     // Første sekvens
@@ -57,6 +62,7 @@ int main() {
     skrivLangsomt("Hvad skal der gøres?");
     std::cout << endl;
     protag.printStats();  // Vis stats
+    protag.printInventory(); // Vis inventar
     std::cout << endl;
 
     // Valg1 muligheder

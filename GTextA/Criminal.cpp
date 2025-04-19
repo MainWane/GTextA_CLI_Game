@@ -1,10 +1,11 @@
 // Criminal Class Header File
 #include <string>
 #include <iostream> // For std::cout
-#include "../include/Criminal.h"
-#include "../include/Style.h" // Include the Style header file
+#include "include/Criminal.h"
+#include "include/Style.h" // Include the Style header file
 
 // Member functions
+    // Health og Damage funktioner
     void Criminal::takeDamage(int damage) { // Function to take damage
         health -= damage;
         if (health < 0) health = 0; // Ensure health doesn't go below 0
@@ -13,6 +14,7 @@
         health += amount;
         if (health > maxHealth) health = maxHealth; // Ensure health doesn't exceed maxHealth
     }
+    // Bevæbnet funktion
     void Criminal::arm() { bevæbnet = true; } // Function to arm the criminal
     void Criminal::disarm() { bevæbnet = false; } // Function to disarm the criminal
     
@@ -23,7 +25,31 @@
     bool Criminal::erDød() const { 
         return health <= 0; } // Function to check if the criminal is dead
 
-   
     void Criminal::ugyldigtValg() {  // Ugyldigt valg funktion
     std::cout << "Ugyldigt valg. Prøv igen. C'mon, ægte gangstere kan godt stave" << endl;
-}
+    }
+
+    // Inventory funktioner
+    void Criminal::addItem(const std::string& item) { // Add item to inventory
+        inventory.push_back(item); 
+    }
+    void Criminal::removeItem(const std::string& item) { // Remove item from inventory
+        auto it = std::find(inventory.begin(), inventory.end(), item);
+        if (it != inventory.end()) {
+            inventory.erase(it); // Remove the item from the inventory
+        }
+    }
+    bool Criminal::hasItem(const std::string& item) const { // Check if item is in inventory
+        return std::find(inventory.begin(), inventory.end(), item) != inventory.end(); // Return true if item is found
+    }
+    void Criminal::printInventory() const { // Print inventory
+        std::cout << "Inventory: ";
+        if (inventory.empty()) {
+            std::cout << "Ingen ting i lommerne" << std::endl; // If inventory is empty
+        } else {
+            for (const auto& item : inventory) {
+                std::cout << "1 " << item << " "; // Print each item in the inventory
+            }
+            std::cout << std::endl;
+        }
+    }

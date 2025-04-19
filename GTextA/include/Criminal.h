@@ -1,6 +1,7 @@
 // Criminal Class Header File
 #pragma once
 #include <string>
+#include <vector>
 
 class Criminal {         // Class definition for Criminal
 private:                 // Private member variables
@@ -10,6 +11,7 @@ private:                 // Private member variables
     int power;           // Power of the criminal
     int maxPower = 200;  // Maximum power of the criminal
     bool bevæbnet;       // Indicates if the criminal is armed
+    std::vector<std::string> inventory; // Inventory of the criminal
 
 public:
     // Constructor
@@ -35,5 +37,11 @@ public:
     void printStats() const;
     bool erDød() const;
     void ugyldigtValg();
+
+    // Inventory functions
+    void addItem(const std::string& item);// Add item to inventory
+    void removeItem(const std::string& item); // Remove item from inventory
+    bool hasItem(const std::string& item) const; // Check if item is in inventory
+    void printInventory() const; // Print inventory
          
 };
