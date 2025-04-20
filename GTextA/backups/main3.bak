@@ -10,6 +10,8 @@ af Ulrik Wandall - 19/04/2025
 #include <cctype> // For at konvertere til lowercase
 #include "include/Criminal.h" // Include the Criminal class header file
 #include "include/Style.h" // Include the Style header file
+#include "include/StoryNode.h" // Include the StoryNode header file
+#include "include/StoryGraph.h" // Include the StoryGraph header file
 
 using namespace std; 
 

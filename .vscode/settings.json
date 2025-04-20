@@ -43,6 +43,8 @@
         "streambuf": "cpp",
         "thread": "cpp",
         "typeinfo": "cpp",
-        "*.bak": "cpp"
+        "*.bak": "cpp",
+        "functional": "cpp",
+        "iterator": "cpp"
     }
 }
