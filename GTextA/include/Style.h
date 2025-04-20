@@ -22,7 +22,7 @@ inline void skrivLangsomt(string tekst, int hastighed = 40) {
         std::cout << c << std::flush;
         this_thread::sleep_for(chrono::milliseconds(hastighed));
     }
-    std::cout << std::endl;
+    std::cout << "\n";
 }
 
 // Dramatisk skrivemaskine effekt funktion
@@ -31,22 +31,22 @@ inline void skrivLangsommere(string tekst, int hastighed = 90) {
         std::cout << c << flush;
         this_thread::sleep_for(chrono::milliseconds(hastighed));
     }
-    std::cout << endl;
+    std::cout << "\n";
 }
 
 // Wasted funktion med effekt
 inline void WASTED() {
-    std::cout << endl;
+    std::cout << "\n";
     skrivLangsommere(std::string(BOLD) + RED + "WASTED" + RESET);
-    std::cout << endl;
+    std::cout << "\n";
     skrivLangsommere(std::string(BOLD) + YELLOW + "Game Over" + RESET);
 }
 
 // Busted funktion med effekt
 inline void BUSTED() {
-    std::cout << endl;
+    std::cout << "\n";
     skrivLangsommere(std::string(BOLD) + RED + "BUSTED" + RESET);
-    std::cout << endl;
+    std::cout << "\n";
     skrivLangsommere(std::string(BOLD) + YELLOW + "Game Over" + RESET);
 }
 

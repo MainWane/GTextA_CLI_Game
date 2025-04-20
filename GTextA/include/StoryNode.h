@@ -4,6 +4,7 @@
 #include <vector>
 #include <functional> // For std::function
 #include "Criminal.h" // Include the Criminal class header file
+#include "Style.h"    // Include the Style header file for skrivLangsomt
 
 class StoryNode {
 public:
@@ -21,13 +22,13 @@ public:
 
     // Display the current scene and choices
     void display(Criminal& player) const {
-        std::cout << description << std::endl;
+        skrivLangsomt(description); // Use skrivLangsomt for the description
         if (action) {
             action(player); // Perform the action
         }
-        std::cout << "Choices:" << std::endl;
+        skrivLangsomt("Hvad gør du?:"); // Use skrivLangsomt for the choices header
         for (const auto& choice : choices) {
-            std::cout << "- " << choice.first << std::endl;
+            skrivLangsomt("- " + choice.first); // Use skrivLangsomt for each choice
         }
     }
 };
