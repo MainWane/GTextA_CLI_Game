@@ -21,16 +21,16 @@ class StoryGraph {
                 currentNode->display(player);
         
                 std::string choice;
-                std::cout << "Enter your choice: ";
+                std::cout << "Hvad vælger du? ";
                 std::getline(std::cin, choice);
         
                 if (currentNode->choices.find(choice) != currentNode->choices.end()) {
                     currentNode = currentNode->choices[choice];
                 } else {
-                    std::cout << "Invalid choice. Try again." << std::endl;
+                    std::cout << "Det er ikke muligt - eller gangsta. Prøv igen." << std::endl;
                 }
             }
         
-            std::cout << "The story has ended." << std::endl;
+            std::cout << "Holy Moly, du overlevede!?." << std::endl;
         }
         };

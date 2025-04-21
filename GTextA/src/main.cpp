@@ -18,7 +18,7 @@ int main() {
     
 
     // Titel
-    std::cout << "\n";
+    std::cout << "\n"; // Ny linje
     std::cout << "\n";
     skrivLangsommere(std::string(BOLD) + YELLOW + "G" + RESET);
     skrivLangsomt(std::string(BOLD) + YELLOW + "Text" + RESET);
@@ -32,19 +32,13 @@ int main() {
     skrivLangsomt("indskydelse er for vanvittig til at handle på.");
     std::cout << "\n";
 
-    // Spilleren vælger navn
-    skrivLangsommere("Hvem er du? (indtast navn)");
-    std::string navn = getValidName(); // Kald funktionen for at få et gyldigt navn
-    Criminal protag(navn, 100, 10, false, 0, 5); // Opretter en Criminal objekt med spillerens navn, 100 health, 10 power, ikke bevæbnet, 0 wanted level og 5 cash
-    protag.addItem("Shotgun");
-    protag.addItem("Granat");
-    protag.addItem("Banan Snackbar"); // Tilføjer genstande til spillerens inventar
-    std::cout << "\n";
+    // Opret spilleren
+    Criminal Criminalprotag = createPlayer(); // Call createPlayer() and assign the returned object to 'protag'
 
      // Opret og spil historien
      StoryNode* startNode = createStory(); // Byg historien ved hjælp af StorySetup
      StoryGraph story(startNode); // Initialiser StoryGraph med startnoden
-     story.play(protag); // Spil historien med spilleren
+     story.play(Criminalprotag); // Spil historien med spilleren
  
      return 0;
  }
