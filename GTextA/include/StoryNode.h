@@ -17,8 +17,6 @@ public:
     std::unordered_map<std::string, StoryNode*> choices; // Choices leading to other nodes
     std::function<void(Criminal&)> action; // Action to perform at this node
 
-    StoryNode* createStory(Criminal& player); // Add Criminal& player parameter
-
     StoryNode(const std::string& desc, std::function<void(Criminal&)> act = nullptr)
         : description(desc), action(act) {}
 

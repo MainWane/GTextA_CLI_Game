@@ -52,9 +52,6 @@ StoryNode* createStory(Criminal& player) {
         { "Snack en BananaBomb Snackbar", BananSnackbar0 }
     });
 
-    // Link nodes
-    intro->addChoice("fortsæt", choice1);
+    return choice1;
 
-    // Return the starting node
-    return intro;
 }

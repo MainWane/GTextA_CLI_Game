@@ -5,7 +5,7 @@
 #include "Criminal.h" // Include the Criminal class header file
 
 // Function to build the story and return the starting node
-StoryNode* createStory();
+StoryNode* createStory(Criminal& player); 
 
 // Function to create the player (Criminal object)
 Criminal createPlayer();

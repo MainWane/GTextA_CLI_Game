@@ -18,13 +18,8 @@ int main() {
     
 
     // Titel
-    std::cout << "\n"; // Ny linje
-    std::cout << "\n";
-    skrivLangsommere(std::string(BOLD) + YELLOW + "G" + RESET);
-    skrivLangsomt(std::string(BOLD) + YELLOW + "Text" + RESET);
-    skrivLangsommere(std::string(BOLD) + YELLOW + "A" + RESET);
-    std::cout << "\n";
-    std::cout << "\n";
+    visTitel();
+
 
     // Introduktion
     skrivLangsomt("Velkommen til Vice City, Florida. Stedet hvor ingen");
@@ -36,7 +31,7 @@ int main() {
     Criminal Criminalprotag = createPlayer(); // Call createPlayer() and assign the returned object to 'Criminalprotag'
 
      // Opret og spil historien
-     StoryNode* startNode = createStory(); // Byg historien ved hjælp af StorySetup
+     StoryNode* startNode = createStory(Criminalprotag); // Byg historien ved hjælp af StorySetup
      StoryGraph story(startNode); // Initialiser StoryGraph med startnoden
      story.play(Criminalprotag); // Spil historien med spilleren
  
