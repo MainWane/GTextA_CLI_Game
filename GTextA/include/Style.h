@@ -1,3 +1,5 @@
+// Style.h indeholder stil og effekter til teksten i programmet. 
+
 #pragma once
 #include <iostream> // For at bruge std::cout
 #include <string> // For at bruge std::string

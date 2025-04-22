@@ -1,3 +1,8 @@
+/* StoryNode.h forvalter StoryNode-klassen, der repræsenterer en node i historien. Den indeholder beskrivelser, valg og handlinger, der skal udføres ved hver node. 
+Den bruger også Criminal-objektet til at interagere med spillerens tilstand.
+*/
+
+#pragma once
 #include <iostream>
 #include <string>
 #include <unordered_map>
@@ -11,6 +16,8 @@ public:
     std::string description; // Description of the scene
     std::unordered_map<std::string, StoryNode*> choices; // Choices leading to other nodes
     std::function<void(Criminal&)> action; // Action to perform at this node
+
+    StoryNode* createStory(Criminal& player); // Add Criminal& player parameter
 
     StoryNode(const std::string& desc, std::function<void(Criminal&)> act = nullptr)
         : description(desc), action(act) {}

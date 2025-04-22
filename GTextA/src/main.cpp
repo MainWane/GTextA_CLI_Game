@@ -33,7 +33,7 @@ int main() {
     std::cout << "\n";
 
     // Opret spilleren
-    Criminal Criminalprotag = createPlayer(); // Call createPlayer() and assign the returned object to 'protag'
+    Criminal Criminalprotag = createPlayer(); // Call createPlayer() and assign the returned object to 'Criminalprotag'
 
      // Opret og spil historien
      StoryNode* startNode = createStory(); // Byg historien ved hjælp af StorySetup

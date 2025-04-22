@@ -1,4 +1,4 @@
-// GTextA Utility.h
+// GTextA Utility.h indeholder funktioner til at håndtere brugerinput.
 
 #pragma once
 #include <iostream> // For std::cout

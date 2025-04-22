@@ -1,3 +1,5 @@
+// StorySetup.h - Headerfil til at oprette historien og spilleren
+
 #pragma once
 #include "StoryNode.h"
 #include "Criminal.h" // Include the Criminal class header file
