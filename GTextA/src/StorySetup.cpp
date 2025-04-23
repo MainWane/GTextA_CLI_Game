@@ -23,9 +23,13 @@ Criminal createPlayer() {
 
 
 StoryNode* createStory(Criminal& player) {
-    // Create story nodes
-    StoryNode* intro = new StoryNode(player.getName() + " træder ud af sit rottebefængte hotel og kaster blikket ned på sin rustne Mañana. Dybt suk, dækket er punkteret igen.. Til alt held triller en funklende rød Infernus op til trafiklyset lige foran. En nar med klistret svenskergarn sidder bag ruden, foran rettet.");
+    std::string introText = player.getName() + // Her spilles intro teksten med spillerens navn
+    " træder ud af sit rottebefængte hotel og kaster blikket ned på sin rustne Mañana. "
+    "Dybt suk, dækket er punkteret igen.. Til alt held triller en funklende rød Infernus op til trafiklyset lige foran. "
+    "En nar med klistret svenskergarn sidder bag ruden, foran rettet.\n\n"
+    "Hvad skal der gøres?";
 
+   
     // Define all nodes referenced in choices
     StoryNode* Svenskergarnet0 = new StoryNode("Du flår døren op, og svenskergarnet går i panik.", [](Criminal& player) {
         player.takeDamage(30);
@@ -44,12 +48,11 @@ StoryNode* createStory(Criminal& player) {
         player.printStats();
     });
 
-    // Now create the choice1 node
-    StoryNode* choice1 = new StoryNode("Hvad skal der gøres?", {
+    StoryNode* choice1 = new StoryNode(introText, {
         { "Flå døren op - tast 'flå'", Svenskergarnet0 },
-        { "Træk din Shotgun", Shotgun0 },
-        { "Kast en granat", Grenade0 },
-        { "Snack en BananaBomb Snackbar", BananSnackbar0 }
+        { "Træk din Shotgun - tast 'shotgun'", Shotgun0 },
+        { "Kast en granat - 'tast granat'", Grenade0 },
+        { "Snack en BananaBomb Snackbar - tast 'Snack'", BananSnackbar0 }
     });
 
     return choice1;
