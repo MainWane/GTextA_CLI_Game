@@ -3,6 +3,8 @@
 #include <iostream> // For std::cout
 #include <algorithm>
 #include <cctype> // For std::tolower
+#include "include/Criminal.h"
+
 
 // Funktion til at standardisere brugerinput ved at fjerne mellemrum og konvertere til små bogstaver
 // Den tager en std::string som input og returnerer den normaliserede version.
@@ -16,7 +18,7 @@ std::string normalizeInput(const std::string& input) {
    // Den normaliserer brugerens input og sammenligner det med de tilgængelige valg i den aktuelle node.
    // Hvis valget er gyldigt, opdaterer den den aktuelle node; ellers beder den brugeren om at prøve igen.
    void StoryGraph::play(Criminal& player) {
-    while (currentNode) {
+    while (currentNode && !player.isGameOver()) { // Tjekker om der er en aktuel node og om spillet er Game Over
         currentNode->display(player);
 
         std::string choice;
@@ -37,7 +39,7 @@ std::string normalizeInput(const std::string& input) {
             std::cout << "Det er ikke muligt - eller gangsta! Prøv igen." << std::endl;
         }
     }
-
+    
     std::cout << "Holy Moly, du overlevede!?." << std::endl;
     skrivLangsomt("Tak for at spille GTextA. Vi ses næste gang, i Liberty City!");
 }

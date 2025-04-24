@@ -8,9 +8,16 @@
 
 // Member functions
     // Health og Damage funktioner
-    void Criminal::takeDamage(int damage) { // Function to take damage
+    void Criminal::takeDamage(int damage) {
         health -= damage;
-        if (health < 0) health = 0; // Ensure health doesn't go below 0
+        if (health < 0) health = 0;
+    
+        printStats();
+    
+        if (health <= 0) {
+            WASTED();
+            gameOver = true; // Set game over if health is 0 or less
+        }
     }
     void Criminal::heal(int amount) { // Function to heal
         health += amount;

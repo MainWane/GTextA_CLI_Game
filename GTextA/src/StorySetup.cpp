@@ -24,8 +24,13 @@ Criminal createPlayer() {
 // Her spilles intro teksten med spillerens navn
 StoryNode* createStory(Criminal& player) {
     std::string introText = player.getName() + 
-    " træder ud af sit rottebefængte hotel og kaster blikket ned på sin rustne Mañana. "
-    "Dybt suk, dækket er punkteret igen.. Til alt held triller en funklende rød Infernus op til trafiklyset lige foran. "
+    " træder ud af sit rottebefængte hotel og kaster blikket ned på sin rustne Mañana..... "
+    "Dybt suk, dækket er punkteret igen. Det er sgu surt at være en broke bitch.";
+    
+    player.printCash();
+    player.printInventory();
+    
+    std::string introText = "Til alt held triller en funklende rød Infernus op til trafiklyset lige foran. "
     "En nar med klistret svenskergarn sidder bag ruden, foran rettet.\n\n"
     "Hvad skal der gøres?";
  
@@ -48,7 +53,6 @@ StoryNode* createStory(Criminal& player) {
     });
 
     StoryNode* choice1 = new StoryNode(introText +
-        "\n\nHvad gør du?\n"
         "- Flå døren op - tast 'flå'\n"
         "- Træk din Shotgun - tast 'shotgun'\n"
         "- Kast en granat - tast 'granat'\n"

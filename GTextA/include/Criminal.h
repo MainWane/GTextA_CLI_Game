@@ -15,6 +15,7 @@ private:                 // Private member variables
     int wantedLevel = 0; // Wanted level of the criminal (0-5)
     std::vector<std::string> inventory; // Inventory of the criminal
     int cash = 0; // Cash of the criminal
+    bool gameOver = false; // Indicates if the game is over
 
 public:
     // Constructor
@@ -31,6 +32,9 @@ public:
     bool isArmed() const { return bevæbnet; }
     int getWantedLevel() const; // Get wanted level
     int getCash() const;  // Get cash
+
+    // New method to check if the game is over
+    bool isGameOver() const { return gameOver; }
 
     // Setters
     void setHealth(int newHealth) { health = newHealth; }   // Set health
