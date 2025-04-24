@@ -27,7 +27,6 @@ public:
             choices[choice.first] = choice.second;
         }
     }
-
     // Add a choice to this node
     void addChoice(const std::string& choiceText, StoryNode* nextNode) {
         choices[choiceText] = nextNode;
@@ -38,10 +37,6 @@ public:
         skrivLangsomt(description); // Use skrivLangsomt for the description
         if (action) {
             action(player); // Perform the action
-        }
-        skrivLangsomt("Hvad gør du?:"); // Use skrivLangsomt for the choices header
-        for (const auto& choice : choices) {
-            skrivLangsomt("- " + choice.first); // Use skrivLangsomt for each choice
         }
     }
 };
