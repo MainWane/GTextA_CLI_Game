@@ -17,9 +17,9 @@ inline std::string getValidName() {
         bool kunMellemrum = std::all_of(navn.begin(), navn.end(), [](unsigned char c) { return std::isspace(c); });
 
         if (navn.empty() || kunMellemrum) {
-            std::cout << "Navnet kan ikke være tomt eller kun mellemrum. Det' ik' Gangsta. Prøv igen: ";
+            skrivLangsomt ("Navnet kan ikke være tomt eller kun mellemrum. Det' ik' Gangsta. Prøv igen OG: ");
         } else if (navn.length() > 20) {
-            std::cout << "Navnet er for langt. Slet ikke Gangsta. Indtast et kortere navn (maks 50 tegn): ";
+            std::cout << "Navnet er for langt. Det ik' Gangsta nok. Indtast et kortere navn, max 20 tegn, OG: ";
         } else {
             break;
         }

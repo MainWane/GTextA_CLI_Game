@@ -27,12 +27,14 @@ StoryNode* createStory(Criminal& player) {
     " træder ud af sit rottebefængte hotel og kaster blikket ned på sin rustne Mañana..... "
     "Dybt suk, dækket er punkteret igen. Det er sgu surt at være en broke bitch.";
     
-    player.printCash();
-    player.printInventory();
+    player.printCash(); // Her understreges spillerens "Broke bitch" status
+    player.printInventory(); // Spillerens første møde med Inventory
+    std::cout << endl;
     
-    std::string introText = "Til alt held triller en funklende rød Infernus op til trafiklyset lige foran. "
-    "En nar med klistret svenskergarn sidder bag ruden, foran rettet.\n\n"
-    "Hvad skal der gøres?";
+    // Tilføj resten af teksten
+    introText += "Til alt held triller en funklende rød Infernus op til trafiklyset lige foran. "
+                 "En nar med klistret svenskergarn sidder bag ruden, foran rettet.\n\n"
+                 "Hvad skal der gøres? \n";
  
     // Define all nodes referenced in choices
     StoryNode* Svenskergarnet0 = new StoryNode("Du flår døren op, og svenskergarnet går i panik.", [](Criminal& player) {
@@ -42,7 +44,7 @@ StoryNode* createStory(Criminal& player) {
     StoryNode* Shotgun0 = new StoryNode("Du trækker din shotgun fra indersiden af din hawaiiskjorte. Du mærker dens tyngde i hænderne og smiler ondskabsfuldt.", [](Criminal& player) {
         player.arm();
         player.setPower(80);
-        player.printStats();
+        
     });
     StoryNode* Grenade0 = new StoryNode("Du kaster en granat mod bilen. Den eksploderer.", [](Criminal& player) {
         WASTED();

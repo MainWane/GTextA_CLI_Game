@@ -14,9 +14,10 @@ std::string normalizeInput(const std::string& input) {
     std::transform(result.begin(), result.end(), result.begin(), ::tolower); // små bogstaver
     return result;
 }
-   // Viser og håndterer brugerens valg i historien
-   // Den normaliserer brugerens input og sammenligner det med de tilgængelige valg i den aktuelle node.
-   // Hvis valget er gyldigt, opdaterer den den aktuelle node; ellers beder den brugeren om at prøve igen.
+   /* Viser og håndterer brugerens valg i historien
+   Den normaliserer brugerens input og sammenligner det med de tilgængelige valg i den aktuelle node  
+   Hvis valget er gyldigt, opdaterer den den aktuelle node; ellers beder den brugeren om at prøve igen. */
+   
    void StoryGraph::play(Criminal& player) {
     while (currentNode && !player.isGameOver()) { // Tjekker om der er en aktuel node og om spillet er Game Over
         currentNode->display(player);
@@ -36,10 +37,10 @@ std::string normalizeInput(const std::string& input) {
         }
 
         if (!validChoice) {
-            std::cout << "Det er ikke muligt - eller gangsta! Prøv igen." << std::endl;
+            std::cout << "Det er ikke muligt - eller særligt Gangsta! Prøv igen." << std::endl;
         }
     }
     
-    std::cout << "Holy Moly, du overlevede!?." << std::endl;
+    skrivLangsommere("Holy Moly, du overlevede!?. \n");
     skrivLangsomt("Tak for at spille GTextA. Vi ses næste gang, i Liberty City!");
 }
