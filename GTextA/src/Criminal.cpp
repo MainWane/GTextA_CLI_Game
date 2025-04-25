@@ -29,7 +29,7 @@
     
     // Nyttefunktioner
     void Criminal::printStats() const { // Viser stats 
-        std::cout << name <<  " har " << GREEN << health << " Health " << RESET << "og " << RED << power << " Power." << RESET << std::endl;
+        skrivLangsomt(name +  " har " + GREEN + std::to_string(health) + " Health " + RESET + "og " + RED + std::to_string(power) + " Power." + RESET);
     }
     bool Criminal::erDød() const { 
         return health <= 0; } // Function to check if the criminal is dead
