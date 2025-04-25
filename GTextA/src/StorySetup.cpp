@@ -24,11 +24,15 @@ Criminal createPlayer() {
 // Her spilles intro teksten med spillerens navn
 StoryNode* createStory(Criminal& player) {
     std::string introText = player.getName() + 
-    " træder ud af sit rottebefængte hotel og kaster blikket ned på sin rustne Mañana..... "
-    "Dybt suk, dækket er punkteret igen. Det er sgu surt at være en broke bitch.";
+    " træder ud af sit rottebefængte hotel. Du har kun det allermest nødvendige på dig."; 
+
+    player.printInventory(); // Spillerens første møde med Inventory
+    std::cout << endl;
+    
+    introText += "Du kaster blikket ned på din rustne Mañana..... "
+    "Dybt suk, dækket er punkteret igen. Det er sgu surt at være en broke bitch. \n";
     
     player.printCash(); // Her understreges spillerens "Broke bitch" status
-    player.printInventory(); // Spillerens første møde med Inventory
     std::cout << endl;
     
     // Tilføj resten af teksten
