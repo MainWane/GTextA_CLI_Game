@@ -22,7 +22,7 @@ public:
 
     // New constructor to support initializer list for choices
     StoryNode(const std::string& desc, std::initializer_list<std::pair<std::string, StoryNode*>> initChoices)
-        : description(desc), action(nullptr) {
+        : description(desc), action(nullptr) { //
         for (const auto& choice : initChoices) {
             choices[choice.first] = choice.second;
         }

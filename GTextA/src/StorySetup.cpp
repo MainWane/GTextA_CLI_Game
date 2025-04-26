@@ -1,8 +1,20 @@
-#include "../include/StorySetup.h" // Adjust the path to match the actual location of StorySetup.h
-#include "../include/Style.h"
-#include "../include/Utility.h" // Include the Utility header file for skrivLangsomt
+#include "StorySetup.h" // 
+#include "Style.h"
+#include "Utility.h" // Include the Utility header file for skrivLangsomt
 
+// MakeNode-funktion til at oprette StoryNode-objekter¨
+// Med default værdier for action og choices som ikke findes i StoryNode.h
+StoryNode* makeNode(const std::string& description,
+    std::function<void(Criminal&)> action = nullptr,
+    std::unordered_map<std::string, StoryNode*> choices = {}) 
+{
+    //
+    StoryNode* node = new StoryNode(description, action);
+    node->choices = choices;
+    return node;
+}
 
+// Funktion til at oprette spilleren (Criminal objektet)
 Criminal createPlayer() {
     // Spilleren vælger navn
     skrivLangsommere("Hvem er du? (indtast navn)");
@@ -23,51 +35,64 @@ Criminal createPlayer() {
 
 // Her spilles intro teksten med spillerens navn
 StoryNode* createStory(Criminal& player) {
-    std::string introText = player.getName() + 
-    " træder ud af sit rottebefængte hotel. Du har kun det allermest nødvendige på dig."; 
-
     player.printInventory(); // Spillerens første møde med Inventory
     std::cout << endl;
     
-    introText += "Du kaster blikket ned på din rustne Mañana..... "
-    "Dybt suk, dækket er punkteret igen. Det er sgu surt at være en broke bitch. \n";
-    
-    player.printCash(); // Her understreges spillerens "Broke bitch" status
-    std::cout << endl;
-    
-    // Tilføj resten af teksten
-    introText += "Til alt held triller en funklende rød Infernus op til trafiklyset lige foran. "
-                 "En nar med klistret svenskergarn sidder bag ruden, foran rettet.\n\n"
+    std::string introText = player.getName() + 
+    " træder ud af sit rottebefængte hotel. Du har kun det allermest nødvendige på dig. Du kaster blikket ned på din rustne Mañana..... "
+    "Dybt suk, dækket er punkteret igen.\n" 
+    "Det er sgu surt at være en broke bitch.\n" 
+    "Til alt held triller en funklende rød Infernus op til trafiklyset lige foran. "
+    "En nar med klistret svenskergarn sidder bag ruden, foran rettet.\n";
+                introText += player.getName() + " tænker det er tid til at opgradere bil...\n\n";
                  "Hvad skal der gøres? \n";
  
     // Define all nodes referenced in choices
-    StoryNode* Svenskergarnet0 = new StoryNode("Du flår døren op, og svenskergarnet går i panik.", [](Criminal& player) {
+    StoryNode* Svenskergarn0 = new StoryNode(
+        "Du tager fat i døren. Svenskergarnet går med det samme i panik og jokker sømmet i bund. \n"
+        "Du er dog fast besluttet på at stjæle bilen og holder fast med alle kræfter. \n"
+        "Altså slæber bilen dig flagrende med. \n" 
+        "Den fine røde bil bliver mindre funklende, men endnu rødere, mens den pløjer et par stakkels turister ned. \n"
+        "Du bliver trukket næsten hundrede meter før " + player.getName() + " bliver sendt flyvende op på fortovet.\n"
+        "Ouch!\n", [](Criminal& player) {
         player.takeDamage(30);
         player.printStats();
     });
-    StoryNode* Shotgun0 = new StoryNode("Du trækker din shotgun fra indersiden af din hawaiiskjorte. Du mærker dens tyngde i hænderne og smiler ondskabsfuldt.", [](Criminal& player) {
+    StoryNode* Shotgun0 = new StoryNode(
+        "Du trækker din shotgun fra indersiden af din hawaiiskjorte. Du mærker dens tyngde i hænderne og smiler ondskabsfuldt.", [](Criminal& player) {
         player.arm();
         player.setPower(80);
         
     });
-    StoryNode* Grenade0 = new StoryNode("Du kaster en granat mod bilen. Den eksploderer.", [](Criminal& player) {
+    StoryNode* Grenade0 = new StoryNode(
+        "Du kaster en granat mod bilen. Den rammer ruden på bilen med et godt dunk. Granaten eksploderer. Både bilen og " + player.getName() + " bliver sprunget i luften.", [](Criminal& player) {
         WASTED();
     });
-    StoryNode* BananSnackbar0 = new StoryNode("Du snacker en BananaBomb Snackbar og føler dig straks bedre tilpas.", [](Criminal& player) {
-        player.heal(20);
-        player.printStats();
+    StoryNode* BananaBomb0 = new StoryNode(
+        "Du snacker en bid af din BananaBomb Snackbar og føler dig straks lidt bedre tilpas.\n" 
+        "Desværre tiltrækker din BananaBomb uønsket opmærksomhed. Da " + player.getName() + "kigger op igen ser du at Svenskergarnet har rettet en Uzi direkte mod dig. \n"
+        "Hans Aviator solbriller blinker i solen. \n"
+        "Han griner ubehageligt og kommanderer dig til at give ham resten af din BananaBomb. \n"
+        "Hvad gør du nu? \n"
+        "- Giv ham din BananaBomb - tast 'giv'\n"
+        "- Kast din BananaBomb - tast 'kast'\n"
+        "- Snack resten af din BananaBomb - tast 'snack'\n"
+        "- Træk din Shotgun - tast 'shotgun'\n"
+        "- Stik af - tast 'løb'\n"
+        , [](Criminal& player) {
+        
     });
 
     StoryNode* choice1 = new StoryNode(introText +
-        "- Flå døren op - tast 'flå'\n"
+        "- Flå døren på bilen op - tast 'flå'\n"
         "- Træk din Shotgun - tast 'shotgun'\n"
         "- Kast en granat - tast 'granat'\n"
         "- Snack en BananaBomb Snackbar - tast 'snack'\n",
         {
-            { "flå", Svenskergarnet0 },
+            { "flå", Svenskergarn0 },
             { "shotgun", Shotgun0 },
             { "granat", Grenade0 },
-            { "snack", BananSnackbar0 }
+            { "snack", BananaBomb0 }
         });
 
     return choice1;

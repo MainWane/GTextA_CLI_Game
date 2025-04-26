@@ -53,8 +53,8 @@
         return std::find(inventory.begin(), inventory.end(), item) != inventory.end(); // Return true if item is found
     }
     void Criminal::printInventory() const { // Print inventory
-        std::cout << "------ Inventory ------ "; // Print inventory header
         std::cout << std::endl; // New line
+        std::cout << "---------- Inventory ---------- "; // Print inventory header
         if (inventory.empty()) {
             std::cout << "Ingen ting i lommerne" << std::endl; // If inventory is empty
         } else {

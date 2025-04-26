@@ -1,9 +1,9 @@
 // StoryGraph.cpp brug af StoryGraph class uden for klasse defintion
-#include "include/StoryGraph.h" // Include the StoryGraph header file
+#include "StoryGraph.h" // Include the StoryGraph header file
 #include <iostream> // For std::cout
 #include <algorithm>
 #include <cctype> // For std::tolower
-#include "include/Criminal.h"
+#include "Criminal.h"
 
 
 // Funktion til at standardisere brugerinput ved at fjerne mellemrum og konvertere til små bogstaver

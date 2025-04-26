@@ -4,11 +4,11 @@ af Ulrik Wandall - 20/04/2025
 
 #include <iostream> // For at bruge std::cout
 #include <string> // For at bruge std::string
-#include "include/Criminal.h" // Include the Criminal class header file
-#include "include/Style.h" // Include the Style header file
-#include "include/StoryGraph.h" // Include the StoryGraph header file
-#include "include/StorySetup.h" // Include the StorySetup header file
-#include "include/Utility.h" // Include the Utility header file
+#include "Criminal.h" // Include the Criminal class header file
+#include "Style.h" // Include the Style header file
+#include "StoryGraph.h" // Include the StoryGraph header file
+#include "StorySetup.h" // Include the StorySetup header file
+#include "Utility.h" // Include the Utility header file
 
 
 
