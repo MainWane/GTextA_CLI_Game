@@ -48,16 +48,36 @@ StoryNode* createStory(Criminal& player) {
                  "Hvad skal der gøres? \n";
  
     // Define all nodes referenced in choices
-    StoryNode* Svenskergarn0 = new StoryNode(
+    StoryNode* Svenskergarn0 = makeNode(
         "Du tager fat i døren. Svenskergarnet går med det samme i panik og jokker sømmet i bund. \n"
         "Du er dog fast besluttet på at stjæle bilen og holder fast med alle kræfter. \n"
         "Altså slæber bilen dig flagrende med. \n" 
         "Den fine røde bil bliver mindre funklende, men endnu rødere, mens den pløjer et par stakkels turister ned. \n"
         "Du bliver trukket næsten hundrede meter før " + player.getName() + " bliver sendt flyvende op på fortovet.\n"
-        "Ouch!\n", [](Criminal& player) {
+        "Ouch!\n",
         player.takeDamage(30);
         player.printStats();
-    });
+        "Du kigger op og ser at Svenskergarnet er steget ud af bilen. Svenskergarnet har en pistol i hånden og peger den mod dig.\n"
+        "Shit!\n"
+        "Hvad gør du nu?"
+        {
+            { "skyd", skydFalse },
+            { "hop i dækning", Svenskergarn1 },
+            { "undskyld", nullptr }
+        }
+    );
+    };
+    StoryNode* skydFalseSG = makeNode( // Valg af skyd uden trukket våben for Svenskergarn (SG) StoryLine
+        "Du løfter armen og bevæger instintivt din triggerfinger. \n"
+        "Du har dog intet våben trukket. Woopsie... \n"
+        "Manden med svenskergarnet spilder ingen tid på at pløkke dig ned. \n"
+       { WASTED();
+    );
+};
+
+
+
+
     StoryNode* Shotgun0 = new StoryNode(
         "Du trækker din shotgun fra indersiden af din hawaiiskjorte. Du mærker dens tyngde i hænderne og smiler ondskabsfuldt.", [](Criminal& player) {
         player.arm();
