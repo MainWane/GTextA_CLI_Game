@@ -55,25 +55,20 @@ StoryNode* createStory(Criminal& player) {
         "Den fine røde bil bliver mindre funklende, men endnu rødere, mens den pløjer et par stakkels turister ned. \n"
         "Du bliver trukket næsten hundrede meter før " + player.getName() + " bliver sendt flyvende op på fortovet.\n"
         "Ouch!\n",
-        player.takeDamage(30);
-        player.printStats();
+        [](Criminal& player) { player.takeDamage(30); },
+        [](Criminal& player) {player.printStats(); },
         "Du kigger op og ser at Svenskergarnet er steget ud af bilen. Svenskergarnet har en pistol i hånden og peger den mod dig.\n"
         "Shit!\n"
-        "Hvad gør du nu?"
+        "Hvad gør du nu?",
         {
-            { "skyd", skydFalse },
+            { "skyd", skydFalseSG },
             { "hop i dækning", Svenskergarn1 },
             { "undskyld", nullptr }
         }
     );
     };
-    StoryNode* skydFalseSG = makeNode( // Valg af skyd uden trukket våben for Svenskergarn (SG) StoryLine
-        "Du løfter armen og bevæger instintivt din triggerfinger. \n"
-        "Du har dog intet våben trukket. Woopsie... \n"
-        "Manden med svenskergarnet spilder ingen tid på at pløkke dig ned. \n"
-       { WASTED();
-    );
-};
+   
+
 
 
 
