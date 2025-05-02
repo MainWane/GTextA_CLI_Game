@@ -39,7 +39,6 @@ StoryNode* Svenskergarn0 = makeNode(
     {
         { "skyd", skydFalseSG },
         { "hop i dækning", Svenskergarn1 },
-        { "undskyld", nullptr }
     }
 );
 
@@ -79,7 +78,7 @@ StoryNode* choice1 = new StoryNode(introText +
         { "granat", Grenade0 },
         { "snack", BananaBomb0 }
     });
-
+return choice1; // Return the starting node
 };
 
 

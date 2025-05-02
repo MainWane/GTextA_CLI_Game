@@ -2,8 +2,8 @@
 
 #include <string>
 #include <iostream> // For std::cout
-#include "include/Criminal.h"
-#include "include/Style.h" // Include the Style header file
+#include "Criminal.h"
+#include "Style.h" // Include the Style header file
 
 
 // Member functions
