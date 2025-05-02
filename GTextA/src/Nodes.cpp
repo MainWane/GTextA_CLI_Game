@@ -19,15 +19,6 @@ StoryNode* createStory(Criminal& player) {
  
     // Define all nodes referenced in choices
 
-StoryNode* Svenskergarn0 = makeNode(
-    "Beskrivelse...",
-    [](Criminal& player) { player.takeDamage(30); },
-    {
-        { "valg1", nullptr },
-        { "valg2", nullptr }
-    }
-);
-
 StoryNode* skydFalseSG = makeNode( // Valg af skyd uden trukket våben for Svenskergarn (SG) StoryLine
     "Du løfter armen og bevæger instintivt din triggerfinger. \n"
     "Du har dog intet våben trukket. Woopsie... \n"

@@ -1,6 +1,8 @@
 #include "Style.h"
 #include "Utility.h" // Include the Utility header file for skrivLangsomt
 #include "StorySetup.h"
+
+
 // MakeNode-funktion til at oprette StoryNode-objekter¨
 // Med default værdier for action og choices som ikke findes i StoryNode.h
 StoryNode* makeNode(const std::string& description,
