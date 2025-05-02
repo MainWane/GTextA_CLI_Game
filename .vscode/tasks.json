@@ -7,9 +7,10 @@
             "command": "g++",
             "args": [
                 "-std=c++17",
+                "-Iinclude",
+                "src/*.cpp",
                 "-o",
-                "gtexta.exe",
-                "gtexta.cpp"
+                "GTextA"
             ],
             "group": "build",
             "problemMatcher": [
