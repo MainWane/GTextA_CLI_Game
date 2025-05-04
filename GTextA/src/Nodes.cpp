@@ -67,6 +67,20 @@ StoryNode* BananaBomb0 = new StoryNode(
     
 });
 
+StoryNode* Svenskergarn1 = makeNode(
+    "Svenskergarn1 output \n"
+    "Du er dog fast besluttet på at stjæle bilen og holder fast med alle kræfter. \n"
+    "Altså slæber bilen dig flagrende med. \n" 
+    "Den fine røde bil bliver mindre funklende, men endnu rødere, mens den pløjer et par stakkels turister ned. \n"
+    "Du bliver trukket næsten hundrede meter før " + player.getName() + " bliver sendt flyvende op på fortovet.\n"
+    "Ouch!\n",
+    [](Criminal& player) { player.takeDamage(30); },
+    {
+        { "skyd", skydFalseSG },
+        { "hop i dækning", Svenskergarn1 },
+    }
+);
+
 StoryNode* choice1 = new StoryNode(introText +
     "- Flå døren på bilen op - tast 'flå'\n"
     "- Træk din Shotgun - tast 'shotgun'\n"

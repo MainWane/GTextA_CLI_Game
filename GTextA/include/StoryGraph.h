@@ -2,7 +2,8 @@
 #include <iostream>
 #include <string>
 #include "StoryNode.h" // Include the StoryNode header file
-#
+
+
 
 class StoryGraph { // StoryGraph klasse til at håndtere historien
     private:

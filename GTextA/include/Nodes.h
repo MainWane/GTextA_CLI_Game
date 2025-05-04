@@ -9,4 +9,4 @@ extern StoryNode* BananaBomb0;
 extern StoryNode* Svenskergarn0;
 extern StoryNode* skydFalseSG;
 extern StoryNode* Svenskergarn1;
-extern StoryNode* Svenskergarn2;
+

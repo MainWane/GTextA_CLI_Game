@@ -52,7 +52,7 @@ inline void BUSTED() {
     skrivLangsommere(std::string(BOLD) + YELLOW + "Game Over" + RESET);
 }
 
-void visTitel() {
+inline void visTitel() {
     std::cout << "\n\n";
     skrivLangsommere(std::string(BOLD) + YELLOW + "G" + RESET);
     skrivLangsomt(std::string(BOLD) + YELLOW + "Text" + RESET);

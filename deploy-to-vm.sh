@@ -7,7 +7,8 @@ REMOTE_DIR="/home/$VM_USER/UAW-Repo-2025"
 # Fjern mappen først, hvis du vil sikre en frisk kopi (valgfrit)
 # ssh "$VM_USER@$VM_IP" "rm -rf $REMOTE_DIR"
 
-# Brug scp i stedet for rsync
+# Brug scp til at overføre filerne
+# -r: rekursiv overførsel af mapper
 scp -r ./ "$VM_USER@$VM_IP:$REMOTE_DIR"
 
 echo "✅ Projektet er overført til $VM_USER@$VM_IP:$REMOTE_DIR"
