@@ -1,5 +1,8 @@
-/* GTextA ver. 0.62
-af Ulrik Wandall - 20/04/2025
+/* GTextA ver. 0.75
+   GTextA er et tekstbaseret RPG, der giver spilleren mulighed for at træffe valg og påvirke historien.
+   Det er designet til at være sjovt og underholdende, med en blanding af humor og action.
+   Spillet er *kraftigt* inspireret af Vice City og GTA-spilserien.
+Designet af Ulrik Wandall - 04/05/2025
 */
 
 #include <iostream> // For at bruge std::cout

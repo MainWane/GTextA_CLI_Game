@@ -29,7 +29,7 @@ StoryNode* createStory(Criminal& player) {
     StoryNode* choice1;
 
     // ---------------------- NODE-DEFINITIONER ----------------------
-    StoryNode* skydFalseSG = makeNode( // Valg af skyd uden trukket våben for Svenskergarn (SG) StoryLine
+    skydFalseSG = makeNode( // Valg af skyd uden trukket våben for Svenskergarn (SG) StoryLine
         "Du løfter armen og bevæger instintivt din triggerfinger. \n"
         "Du har dog intet våben trukket. Woopsie... \n"
         "Manden med svenskergarnet spilder ingen tid på at pløkke dig ned. \n",
@@ -38,7 +38,7 @@ StoryNode* createStory(Criminal& player) {
         {}
     );
 
-    StoryNode* Svenskergarn0 = makeNode(
+    Svenskergarn0 = makeNode(
         "Du tager fat i døren. Svenskergarnet går med det samme i panik og jokker sømmet i bund. \n"
         "Du er dog fast besluttet på at stjæle bilen og holder fast med alle kræfter. \n"
         "Altså slæber bilen dig flagrende med. \n" 
@@ -52,17 +52,19 @@ StoryNode* createStory(Criminal& player) {
         }
     );
 
-    StoryNode* Shotgun0 = makeNode(
+    Shotgun0 = makeNode(
         "Du trækker din shotgun fra indersiden af din hawaiiskjorte. Du mærker dens tyngde i hænderne og smiler ondskabsfuldt.", [](Criminal& player) {
         player.arm();
         player.setPower(80);
         
     }, {});
-    StoryNode* Grenade0 = makeNode(
+    
+    Grenade0 = makeNode(
         "Du kaster en granat mod bilen. Den rammer ruden på bilen med et godt dunk. Granaten eksploderer. Både bilen og " + player.getName() + " bliver sprunget i luften.", [](Criminal& player) {
         WASTED();
     }, {});
-    StoryNode* BananaBomb0 = makeNode(
+    
+    BananaBomb0 = makeNode(
         "Du snacker en bid af din BananaBomb Snackbar og føler dig straks lidt bedre tilpas.\n" 
         "Desværre tiltrækker din BananaBomb uønsket opmærksomhed. Da " + player.getName() + "kigger op igen ser du at Svenskergarnet har rettet en Uzi direkte mod dig. \n"
         "Hans Aviator solbriller blinker i solen. \n"
@@ -83,7 +85,7 @@ StoryNode* createStory(Criminal& player) {
         { "løb", Svenskergarn1 }
     });
 
-    StoryNode* Svenskergarn1 = makeNode(
+    Svenskergarn1 = makeNode(
         "Svenskergarn1 output \n"
         "Du er dog fast besluttet på at stjæle bilen og holder fast med alle kræfter. \n"
         "Altså slæber bilen dig flagrende med. \n" 
@@ -96,12 +98,14 @@ StoryNode* createStory(Criminal& player) {
         }
     );
 
-    StoryNode* choice1 = makeNode(introText +
+    choice1 = makeNode(introText +
         "- Flå døren på bilen op - tast 'flå'\n"
         "- Træk din Shotgun - tast 'shotgun'\n"
         "- Kast en granat - tast 'granat'\n"
         "- Snack en BananaBomb Snackbar - tast 'snack'\n",
-        nullptr, // Ingen handling ved denne node
+        [](Criminal& player) {
+            player.printInventory(); // Print inventory at the start of the game
+        },
         {
             { "flå", Svenskergarn0 },
             { "shotgun", Shotgun0 },
