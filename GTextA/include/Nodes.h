@@ -4,6 +4,7 @@
 
 extern StoryNode* choice1;
 extern StoryNode* Shotgun0;
+extern StoryNode* Shotgun1;
 extern StoryNode* Grenade0;
 extern StoryNode* BananaBomb0;
 extern StoryNode* Svenskergarn0;
