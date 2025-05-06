@@ -5,9 +5,8 @@
 
 // Her spilles intro teksten med spillerens navn
 StoryNode* createStory(Criminal& player) {
-    player.printInventory(); // Spillerens første møde med Inventory
     std::cout << endl;
-    
+
     // ---------------------- TEKST INTRO ----------------------    
     std::string introText = player.getName() + 
     " træder ud af sit rottebefængte hotel. Du har kun det allermest nødvendige på dig. Du kaster blikket ned på din rustne Mañana..... "
@@ -67,8 +66,8 @@ StoryNode* createStory(Criminal& player) {
     BananaBomb0 = makeNode(
         "Du snacker en bid af din BananaBomb Snackbar og føler dig straks lidt bedre tilpas.\n" 
         "Desværre tiltrækker din BananaBomb uønsket opmærksomhed. Da " + player.getName() + "kigger op igen ser du at Svenskergarnet har rettet en Uzi direkte mod dig. \n"
-        "Hans Aviator solbriller blinker i solen. \n"
-        "Han griner ubehageligt og kommanderer dig til at give ham resten af din BananaBomb. \n"
+        "Hans Aviator solbriller blinker i solen, han har små, onde øjne - forestiller du dig. \n"
+        "Svenskergarnet griner ubehageligt og kommanderer dig til at give ham resten af din BananaBomb. \n"
         "Hvad gør du nu? \n"
         "- Giv ham din BananaBomb - tast 'giv'\n"
         "- Kast din BananaBomb - tast 'kast'\n"
