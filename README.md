@@ -20,9 +20,9 @@ Det demonstrerer inputhåndtering, kontrolflow, filstruktur og cross-platform de
 
 ## Struktur
 GTextA_CLI_Game/
-├── GTextA/ # Kildekode i C++
-├── .vscode/ # VSCode-opsætning til projektet
-└── .gitattributes # Git-format- og tekstindstillinger
+- GTextA/ # Kildekode i C++
+- .vscode/ # VSCode-opsætning til projektet
+- .gitattributes # Git-format- og tekstindstillinger
 
 ## Kompilering og kørsel
 
