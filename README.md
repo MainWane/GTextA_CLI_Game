@@ -6,21 +6,22 @@ All in danish!
 
 # GTextA CLI Game
 
-Et tekstbaseret konsolspil skrevet i **C++**, udviklet som del af et 2025-projekt af *Ulrik Wandall*.  
-Spillet kører i terminalen og er designet som et simpelt, interaktivt tekst-eventyr (CLI-game).
+Et tekstbaseret konsolspil skrevet i **C++**, udviklet som del af et 2024-projekt af *Ulrik Wandall*.  
+Spillet kører i terminalen og er designet som et simpelt, interaktivt tekst-eventyr (CLI-game). 
+NB: Grimt sprog og meningsløs vold kan forekomme.
 
 ---
 
 ## Formål
 
 GTextA er et eksperiment i at bygge et **tekstbaseret spil** i C++, hvor brugerens kommandoer og programlogik håndteres direkte i terminalen.  
-Det demonstrerer inputhåndtering, kontrolflow, filstruktur og cross-platform deploy.
+Det demonstrerer inputhåndtering, kontrolflow, filstruktur og cross-platform deploy. Spillet er under spordisk udvikling.
 
 ---
 
 ## Struktur
 GTextA_CLI_Game/
-- GTextA/ # Kildekode i C++
+- GTextA/ # sourcecode i C++
 - .vscode/ # VSCode-opsætning til projektet
 - .gitattributes # Git-format- og tekstindstillinger
 
@@ -35,6 +36,3 @@ GTextA_CLI_Game/
 
    ```bash
    ./GTextA
-
-
-
