@@ -15,7 +15,7 @@ NB: Grimt sprog og meningsløs vold kan forekomme.
 ## Formål
 
 GTextA er et eksperiment i at bygge et **tekstbaseret spil** i C++, hvor brugerens kommandoer og programlogik håndteres direkte i terminalen.  
-Det demonstrerer inputhåndtering, kontrolflow, filstruktur og cross-platform deploy. Spillet er under spordisk udvikling.
+Det demonstrerer inputhåndtering, kontrolflow, filstruktur og cross-platform deploy. Spillet er under sporadisk udvikling.
 
 ---
 
